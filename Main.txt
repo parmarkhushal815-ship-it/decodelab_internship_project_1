@@ -1,0 +1,55 @@
+# Model / Storage setup (Volatile Memory container)
+my_tasks = []  # Dynamic array pre-allocated in Heap memory
+
+
+def add_task(tasks):
+    """Handles adding a new task to the volatile memory storage."""
+    task_name = input("\nEnter the task (e.g., 'Finish Python assignment'): ").strip()
+    
+    if task_name:
+        tasks.append(task_name)  # Appends to dynamic array
+        print(f"Task '{task_name}' added successfully!")
+    else:
+        print("Task cannot be empty.")
+
+
+def view_tasks(tasks):
+    """Handles displaying data using Pythonic simultaneous indexing."""
+    if not tasks:
+        print("\nYour To-Do List is currently empty.")
+        return
+
+    print("\nYOUR TO-DO LIST:")
+    # Using enumerate() for Pythonic index and value retrieval
+    for index, task in enumerate(tasks, start=1):
+        print(f"{index}. {task}")
+
+
+def show_menu():
+    """Renders the User Interface menu."""
+    print("\n--- TO-DO LIST MENU ---")
+    print("1. View Tasks")
+    print("2. Add Task")
+    print("3. Exit")
+
+
+def main():
+    """Main execution engine following the IPO (Input-Process-Output) model."""
+    while True:
+        show_menu()
+        choice = input("Enter your choice (1-3): ").strip()
+
+        if choice == '1':
+            view_tasks(my_tasks)
+        elif choice == '2':
+            add_task(my_tasks)
+        elif choice == '3':
+            print("\nThank you for using the To-Do List program. Goodbye!")
+            break
+        else:
+            print("Invalid choice! Please select 1, 2, or 3.")
+
+
+# Entry point guard (Decouples module execution from global scope)[cite: 1]
+if __name__ == "__main__":
+    main()
