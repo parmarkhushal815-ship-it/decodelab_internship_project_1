@@ -1,4 +1,4 @@
-+ #Project: To-Do List Application
++ #Project: To-Do List 
 
 #Overview
 This project is part of the Decode Labs Python Programming Internship. It is a command-line application designed to help users manage, organize, and track their daily tasks efficiently.
